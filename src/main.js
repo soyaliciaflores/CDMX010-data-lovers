@@ -30,7 +30,8 @@ butShowAll.addEventListener ("click", function showCards() {
 
     document.getElementById("resultados").innerHTML= cardsFunction
       };
-         
+        
+
 // ya aniadi las variables
 
 const selectGender = document.querySelector("#genderFilter");
