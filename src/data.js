@@ -1,3 +1,7 @@
+
+
+ 
+=======
 // estas funciones son de ejemplo
 
 export const example = () => {
@@ -34,3 +38,4 @@ export function showCards() {
 
   document.getElementById("resultados").innerHTML= cardsFunction
     };
+
