@@ -1,8 +1,7 @@
 import {theAthletes} from './data/athletes/athletes.js';
-import { cards, showCards } from './data.js';
 
 
-export let cards = (athlete) => {
+let cards = (athlete) => {
   let card = `
   <div class="cardAthletes">
   <img class="logochico" src="assets/logo rio de janeiro.png">
