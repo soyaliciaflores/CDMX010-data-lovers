@@ -8,10 +8,6 @@ butShowAll.addEventListener ("click", function showCards() {
     document.getElementById("resultados").innerHTML= cardsFunction
 });
 
-// ya aniadi las variables
-
-
-
 let cards = (athlete) => {
     let card = `
     <div class="cardAthletes">
@@ -59,10 +55,7 @@ buttonSearch.addEventListener("click", function theGenderFilter() {
     element.textContent = `${theTotal} Total`
     const nav = document.querySelector("#totalFilter");
     nav.appendChild(element);
-    
     nav.innerHTML = theTotal;
-    console.log(filterGender.length);
-
 });  
 
 const losAtletas2 = theAthletes.athletes;
@@ -90,8 +83,7 @@ document.getElementById("allCountries").addEventListener("click", function () {
         let containerCards22 = document.getElementById("card");
       let html = `
        <div class="cardTeam" >
-                 <img src="assets/logo rio de janeiro.png" class="mediumLogo">
-                              
+                 <img src="assets/logo rio de janeiro.png" class="mediumLogo">                       
        </div>
       <table>  
         <tr>
