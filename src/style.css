@@ -198,7 +198,7 @@ h2{
 }
 
 .cardTeam {
-    display: flex;
+    display: inline-block; 
     flex-wrap: wrap;
     width: 128rem;
     height: 10rem;
