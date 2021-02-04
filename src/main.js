@@ -4,23 +4,25 @@ import {filterSearch, cards} from './data.js';
 const losAtletas= theAthletes.athletes
 const butShowAll= document.getElementById("buttonShowAll");
 butShowAll.addEventListener ("click", function showCards() {
-    let cardsFunction = losAtletas.map((e)=>{
-        return cards(e);
-    }).join(" ");
-    document.getElementById("resultados").innerHTML= cardsFunction
+   let cardsFunction = losAtletas.map((e)=>{
+       return cards(e);
+   }).join(""); 
+  document.getElementById("resultados").innerHTML= cardsFunction
 });
 const selectGender = document.querySelector("#genderFilter");
 const selectMedal = document.querySelector("#medalFilter");
 const selectTeam = document.querySelector("#pais");
-const selectSport = document.querySelector('#sportSelector')
+const selectSport = document.querySelector("#sportSelector")
 const buttonSearch = document.getElementById("buttonsearch2");
 buttonSearch.addEventListener("click", function theGenderFilter() {
     let athletesFilter = theAthletes.athletes;
     let html1 = ""
     let results = document.querySelector("#resultados");
+
     let filterGender = athletesFilter.filter( athlete => athlete.sport === selectSport.value && athlete.gender === selectGender.value && athlete.medal === selectMedal.value && athlete.team === selectTeam.value)
     filterGender.forEach( athlete => { html1 += cards(athlete)})
     results.innerHTML= html1;
+  
     const theTotal = filterGender.length;
     let element = document.createElement("p")
     element.textContent = `${theTotal} Total`
@@ -50,11 +52,16 @@ document.getElementById("allCountries").addEventListener("click", function () {
     });
     let countriesOne = [...new Set(countries.map(item => item.team))];
     
-    let cardsFunction22 = () => {
+  let cardsFunction22 = () => {
         let containerCards22 = document.getElementById("card");
-      let html = `
+        let html = `
        <div class="cardTeam" >
+
                  <img src="assets/logo rio de janeiro.png" class="mediumLogo">                       
+                 <div class="titletotalteams">${countriesOne.length} Equipos ganaron medallas</div> 
+                 <br> 
+                 <img src="assets/logo rio de janeiro.png" class="mediumLogo">
+
        </div>
       <table>  
         <tr>
@@ -72,7 +79,9 @@ document.getElementById("allCountries").addEventListener("click", function () {
       containerCards22.innerHTML = html;
     };
     cardsFunction22()
+
   });
+
     //imprime el menu de deportes
     function cargarSports (){
         let allSports = ["Archery", "Athletics", "Badminton", "Basketball", "Beach Volleyball", "Boxing", "Canoeing", "Cycling", "Diving", "Equestrianism", "Fencing", "Football", "Golf", "Gymnastics", "Handball", "Hockey",
@@ -99,10 +108,11 @@ function cargarCountries(){
       option.innerHTML=paises[i]; //se mete el texto en la opción
       select.appendChild(option); // se mete la opción en el select
   }}
+
   cargarCountries();        
+
 //Inicia la función que busca por coincidenicia de nombre
 const boton = document.querySelector("#buttonFinder");
 boton.addEventListener("click", filterSearch);
 
 
-        

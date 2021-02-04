@@ -197,14 +197,12 @@ h2{
     justify-content: space-around;
 }
 
+
 .cardTeam {
     display: flex;
     flex-wrap: wrap;
-    width: 128rem;
-    height: 10rem;
     border: rgb(3, 70, 129) 2px solid;
 }
-
 
 .mediumLogo{
     display:flex;
@@ -223,3 +221,12 @@ h2{
     border-collapse: collapse;
     border: rgb(3, 70, 129) 2px solid;
 }
+
+.titletotalteams{
+    font-family: rubik;
+    font-size: 1.6rem;
+    color: green;
+    text-align: left;
+    justify-content: flex-end;    
+}
+

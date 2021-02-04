@@ -1,6 +1,8 @@
+
 import {theAthletes} from './data/athletes/athletes.js';
 
  export const filterSearch = () => {
+
     const losAtletas= theAthletes.athletes
     const formulario = document.querySelector("#searchB");
     const resultadoDelFinder = document.querySelector("#resultados")
