@@ -69,13 +69,13 @@ document.getElementById("allCountries").addEventListener("click", function () {
         return x < y ? -1 : x > y ? 1 : 0;
     });
     let countriesOne = [...new Set(countries.map(item => item.team))];
-      
-    let cardsFunction22 = () => { 
+    let cardsFunction22 = () => {
         let containerCards22 = document.getElementById("card");
-      let html = `
+        let html = `
        <div class="cardTeam" >
+                 <div class="titletotalteams">${countriesOne.length} Equipos ganaron medallas</div> 
+                 <br> 
                  <img src="assets/logo rio de janeiro.png" class="mediumLogo">
-                              
        </div>
       <table>  
         <tr>
@@ -94,6 +94,10 @@ document.getElementById("allCountries").addEventListener("click", function () {
     };
     cardsFunction22()
   });
+  
+
+
+      
     //imprime el menu de deportes
     function cargarSports (){
         let allSports = ["Archery", "Athletics", "Badminton", "Basketball", "Beach Volleyball", "Boxing", "Canoeing",
