@@ -1,4 +1,6 @@
 import {theAthletes} from './data/athletes/athletes.js';
+import {filterSearch, cards} from './data.js';
+
 const losAtletas= theAthletes.athletes
 const butShowAll= document.getElementById("buttonShowAll");
 butShowAll.addEventListener ("click", function showCards() {
@@ -7,40 +9,18 @@ butShowAll.addEventListener ("click", function showCards() {
    }).join(""); 
   document.getElementById("resultados").innerHTML= cardsFunction
 });
-
-let cards = (athlete) => {
-  let card = `
-  <div class="cardAthletes">
-  <img class="logochico" src="assets/logo rio de janeiro.png">
-  <h1 class="name">Name: ${athlete.name}</h1>
-  <h2>Gender: ${athlete.gender}</h2>
-  <h2>Height: ${athlete.height}</h2>
-  <h2>Weight: ${athlete.weight}</h2>
-  <h2>Sport: ${athlete.sport}</h2>
-  <h2>Team: ${athlete.team}</h2>
-  <h2>Age: ${athlete.age}</h2>
-  <h2>Event: ${athlete.event}</h2>
-  <h2>Medal: ${athlete.medal}</h2>
-  </div>
-  `;
-  return card;
-}
-
 const selectGender = document.querySelector("#genderFilter");
 const selectMedal = document.querySelector("#medalFilter");
 const selectTeam = document.querySelector("#pais");
 const selectSport = document.querySelector("#sportSelector")
 const buttonSearch = document.getElementById("buttonsearch2");
-
 buttonSearch.addEventListener("click", function theGenderFilter() {
     let athletesFilter = theAthletes.athletes;
     let html1 = ""
     let results = document.querySelector("#resultados");
-   
     let filterGender = athletesFilter.filter( athlete => athlete.gender === selectGender.value && athlete.medal === selectMedal.value && athlete.team === selectTeam.value)
     filterGender.forEach( athlete => { html1 += cards(athlete)})
-    results.innerHTML= html1;
-       
+    results.innerHTML= html1; 
     const theTotal = filterGender.length;
     let element = document.createElement("p")
     element.textContent = `${theTotal} Total`
@@ -69,7 +49,8 @@ document.getElementById("allCountries").addEventListener("click", function () {
         return x < y ? -1 : x > y ? 1 : 0;
     });
     let countriesOne = [...new Set(countries.map(item => item.team))];
-    let cardsFunction22 = () => {
+    
+  let cardsFunction22 = () => {
         let containerCards22 = document.getElementById("card");
         let html = `
        <div class="cardTeam" >
@@ -93,11 +74,7 @@ document.getElementById("allCountries").addEventListener("click", function () {
       containerCards22.innerHTML = html;
     };
     cardsFunction22()
-  });
-  
-
-
-      
+  });    
     //imprime el menu de deportes
     function cargarSports (){
         let allSports = ["Archery", "Athletics", "Badminton", "Basketball", "Beach Volleyball", "Boxing", "Canoeing",
@@ -112,7 +89,6 @@ document.getElementById("allCountries").addEventListener("click", function () {
         sportSelector.appendChild(option);
         }}
         cargarSports();
-
 //Inicia la función que carga los datos en el menú desplegable de países
 function cargarCountries(){
   const paises = [ "Algeria", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",  "Bahamas",  "Bahrain", "Belarus",
@@ -133,29 +109,7 @@ function cargarCountries(){
       select.appendChild(option); // se mete la opción en el select
   }}
   cargarCountries();
-  //Termina la función que carga el menu desplegable de paises
-        
-
 //Inicia la función que busca por coincidenicia de nombre
 const boton = document.querySelector("#buttonFinder");
-const filterSearch = () => {
-    const losAtletas= theAthletes.athletes
-    const formulario = document.querySelector("#searchB");
-    const resultadoDelFinder = document.querySelector("#resultados")
-    const textUser = formulario.value.toLowerCase();
-    for(let e of losAtletas){
-        let nombre = e.name.toLowerCase();
-        if(nombre.indexOf(textUser) !== -1){
-            resultadoDelFinder.innerHTML += 
-            cards(e);
-        }}
-    if(resultadoDelFinder.innerHTML === ""){
-        resultadoDelFinder.innerHTML += `
-        <h1> The athlete don´t have found...try again</h1>
-            `
-    }}
 boton.addEventListener("click", filterSearch);
-
-//Termina función que busca por coincidencia de nombres
-
 
